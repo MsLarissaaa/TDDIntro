@@ -1,14 +1,21 @@
 package com.thoughtworks.tddintro.exercises.accountbalance;
 
 public class Account {
-    int balance;
+    private int balance;
 
     Account(int money){
         balance = money;
     }
 
-    public Integer deposit(int amount){
+    Integer deposit(int amount){
         balance += amount;
+        return balance;
+    }
+
+    Integer withdrawal(int amount){
+        if(amount < balance){
+            balance -= amount;
+        }
         return balance;
     }
 }

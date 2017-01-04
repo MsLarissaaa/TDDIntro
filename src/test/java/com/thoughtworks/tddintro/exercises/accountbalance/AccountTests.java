@@ -12,14 +12,12 @@ public class AccountTests {
     public void shouldIncreaseMyBalanceWhenIDepositMoney(){assertThat(account.deposit(50), is(150));}
 
     @Test
-    @Ignore  // Remove each @Ignore and implement test
-    public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
-
-    }
+    public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){assertThat(account.withdrawal(50), is(50));}
 
     @Test
-    @Ignore  // Remove each @Ignore and implement test
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
-
+        Account account2 = new Account(50);
+        assertThat(account2.withdrawal(100), is(50));
     }
+
 }
