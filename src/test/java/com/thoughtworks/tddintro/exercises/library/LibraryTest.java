@@ -41,16 +41,20 @@ public class LibraryTest {
     }
 
     @Test
-    @Ignore // Remove each @Ignore and implement test
     public void shouldPrintNothingWhenThereAreNoBooks() {
-
-        // implement me
+        library.listBooks();
+        verify(printStream).println("");
     }
 
     @Test
-    @Ignore // Remove each @Ignore and implement test
     public void shouldPrintBothBookTitlesWhenThereAreTwoBooks() throws IOException {
-        // implement me
+        String title1 = "The Fellowship of the Ring";
+        String title2 = "The Return of the King";
+        books.add(title1);
+        books.add(title2);
+
+        library.listBooks();
+        verify(printStream).println("The Fellowship of the Ring\nThe Return of the King\n");
     }
 
     @Test
@@ -61,11 +65,9 @@ public class LibraryTest {
     }
 
     @Test
-    @Ignore // Remove each @Ignore and implement test
     public void shouldDeleteBookFromCollectionWhenRemovedByUser() throws IOException {
-        // Add when/thenReturn here
-
         books.add("The Two Towers");
+        when(bufferedReader.readLine()).thenReturn("The Two Towers");
         library.removeBook();
 
         assertThat(books, not(hasItems("The Two Towers")));
