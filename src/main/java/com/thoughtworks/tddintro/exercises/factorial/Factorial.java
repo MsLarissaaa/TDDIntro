@@ -2,7 +2,10 @@ package com.thoughtworks.tddintro.exercises.factorial;
 
 public class Factorial {
     public Integer compute(int i) {
-        int fact = 1;
+        int fact = i;
+        if(i == 0){
+            fact = 1;
+        }
         return fact;
     }
 }
